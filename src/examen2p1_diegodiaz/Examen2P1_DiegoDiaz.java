@@ -14,8 +14,9 @@ import java.util.Scanner;
 public class Examen2P1_DiegoDiaz {
     
     //uso metodos estaticos para poder llamarlos donde sea 
-     static Scanner leer = new Scanner(System.in);
+     
      static ArrayList <Nave> navesDisponibles = new ArrayList<>();
+     
     
 
     /**
@@ -23,7 +24,7 @@ public class Examen2P1_DiegoDiaz {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        Scanner leer = new Scanner(System.in);
         int opc = 0;
         do {
             System.out.println("Bienvenido al Gran Torneo AeroEspacial VI");
@@ -66,8 +67,9 @@ public class Examen2P1_DiegoDiaz {
         } while (opc != 7);
     }
     // creo un metodo auxiliar  para que si el usuario ingresa un dato afuera del rango por ejemplo vida ingresa 900 vuelva a preguntar 
-    
+     
     public static void crearNave(){
+        Scanner leer = new Scanner(System.in);
         System.out.println("Ha elegido la opcion de crear una nave porfavor aporte la informacion solicitada. ");
         System.out.println("Ingrese el nombre de la nave: ");
         String nombre = leer.nextLine();
@@ -77,15 +79,45 @@ public class Examen2P1_DiegoDiaz {
             System.out.println("Ingrese el tipo de ataque (Ataque/Defensa)");
             tipoNave = leer.nextLine();
             
-            if (!tipoNave.equalsIgnoreCase("Ataque") && tipoNave.equalsIgnoreCase("Defensiva")) {
-                System.out.println("Error: El tipo solo puede ser 'Ataque' o 'Defensiva'.");     
+            if (!tipoNave.equalsIgnoreCase("Ataque") && !tipoNave.equalsIgnoreCase("Defensiva")) {
+                System.out.println("Error: El tipo solo puede ser 'Ataque' o 'Defensiva'.");
+            }
+        }
             tipoNave = tipoNave.substring(0, 1).toUpperCase() + tipoNave.substring(1).toLowerCase();
+            
+            int vida = 0;
+            while (vida < 1000 || vida > 2000) {
+                System.out.println("Ingrese vida (1000/ 2000)");
+                vida = leer.nextInt();
+                if (vida < 1000 || vida > 2000) {
+                    System.out.println("Ingrese una vida valida, entre 1000 y 2000");
+                    
+                }
+        }
+            
 
         
-        }
         
-        }
+        
     }
+    public static void modificarNave(){
+        
+    }
+    public static void listarNaves(){
+        
+    }
+    public static void eliminarNave(){
+        
+    }
+    public static void histotial(){
+        
+    }
+    public static void Simulacion(){
+        
+    }
+    
 }
+    
+
     
 
