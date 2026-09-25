@@ -43,6 +43,7 @@ public class Examen2P1_DiegoDiaz {
                 case 2:
                     break;
                 case 3:
+                    listarNaves();
                     break;
                 case 4:
                     break;
@@ -85,7 +86,7 @@ public class Examen2P1_DiegoDiaz {
             vida = leer.nextInt();
             leer.nextLine();
             if (vida < 1000 || vida > 2000) {
-                System.out.println("Ingrese una vida valida, entre 1000 - 2000");
+                System.out.println("Ingrese una vida valida, entre (1000 - 2000) ");
             }
         }
             int escudo = 0;
@@ -94,16 +95,16 @@ public class Examen2P1_DiegoDiaz {
                 escudo = leer.nextInt();
                 leer.nextLine();
                 if (escudo < 100 || escudo > 500) {
-                    System.out.println("Ingrese un escudo valido entre 100 - 500");
+                    System.out.println("Ingrese un escudo valido entre (100 - 500) ");
                 }
             }
                 int ataque = 0;
         while (ataque < 4 || ataque > 10) {
-            System.out.println("Ingrese el Poder de Ataque 4 - 10: ");
+            System.out.println("Ingrese el Poder de Ataque (4 - 10) : ");
             ataque = leer.nextInt();
             leer.nextLine();
             if (ataque < 4 || ataque > 10) {
-                System.out.println("Ingrese poder valido entre 4 - 10");
+                System.out.println("Ingrese poder valido entre (4 - 10)");
             }
         }
 
@@ -121,8 +122,25 @@ public class Examen2P1_DiegoDiaz {
                 System.out.println("Nave creada existosamente !");
 
             }
-
+    public static void modificarNave(){
+        
+    }
+    
+    public static void listarNaves(){
+        System.out.println("Naves disponibles: \n\n");
+        System.out.println("\n--- NAVES DISPONIBLES ---");
+        if (navesDisponibles.isEmpty()) {
+            System.out.println("No hay naves en el sistema.");
+            return;
         }
+
+        for (int i = 0; i < navesDisponibles.size(); i++) {
+            System.out.println("[" + i + "] " + navesDisponibles.get(i).toString());
+        }
+    }
+    }
+
+        
 
     
     

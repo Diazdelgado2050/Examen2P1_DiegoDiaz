@@ -67,7 +67,12 @@ public class Nave {
 
     @Override
     public String toString() {
-        return "Nave{" + "nombre=" + nombre + ", tipo=" + tipo + ", vida=" + vida + ", escudo=" + escudo + ", poderAtaque=" + poderAtaque + ", velocidad=" + velocidad + '}';
+        return "Nave: " +  nombre + 
+                "| tipo: " + tipo + 
+                "| vida: " + vida + 
+                "| escudo: " + escudo + 
+                "| poderAtaque: " + poderAtaque + 
+                "| velocidad: " + velocidad;
     }
 
     public Nave(String nombre, String tipo, int vida, int escudo, int poderAtaque, int velocidad) {
