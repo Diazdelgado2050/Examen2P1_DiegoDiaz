@@ -67,11 +67,11 @@ public class Nave {
 
     @Override
     public String toString() {
-        return "Nave: " +  nombre + 
-                "| tipo: " + tipo + 
-                "| vida: " + vida + 
-                "| escudo: " + escudo + 
-                "| poderAtaque: " + poderAtaque + 
+        return "Nave: " +  nombre +"\n"+ 
+                "| tipo: " + tipo +"\n"+ 
+                "| vida: " + vida +"\n"+ 
+                "| escudo: " + escudo +"\n"+ 
+                "| poderAtaque: " + poderAtaque +"\n"+ 
                 "| velocidad: " + velocidad;
     }
 

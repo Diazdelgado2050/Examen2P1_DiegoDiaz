@@ -50,6 +50,7 @@ public class Examen2P1_DiegoDiaz {
                     eliminarNave();
                     break;
                 case 5:
+                    simulacionCombate();
                     break;
                 case 6:
                     break;
@@ -174,7 +175,7 @@ public class Examen2P1_DiegoDiaz {
         }
 
         for (int i = 0; i < navesDisponibles.size(); i++) {
-            System.out.println("[" + i + "] " + navesDisponibles.get(i).toString());
+            System.out.println("[" + i + "] " + navesDisponibles.get(i).toString() + "\n\n--------------------");
         }
 
     }
@@ -197,5 +198,58 @@ public class Examen2P1_DiegoDiaz {
 
         Nave eliminada = navesDisponibles.remove(naves);
         System.out.println("La nave a sido eliminada con exito");
+    }
+
+    public static void simulacionCombate() {
+
+        Scanner leer = new Scanner(System.in);
+        System.out.println("Ha ingresado la opcion de simulacion de combate. Elija la primera nave ingresando el numero de nave");
+
+        listarNaves();
+
+        int index1 = -1;
+        while (index1 < 0 || index1 >= navesDisponibles.size()) {
+            System.out.print("Seleccione la primera nave para el combate: ");
+            index1 = leer.nextInt();
+            leer.nextLine();
+
+        }
+
+        int index2 = -1;
+        while (true) {
+            System.out.print("Seleccione la segunda nave: ");
+            index2 = leer.nextInt();
+            leer.nextLine();
+            
+            if (index1 < 0  || index2 >= navesDisponibles.size()) {
+                System.out.println("Ingrese valor valido");
+            }else if (index2 == index1){
+                System.out.println("Tienen que ser diferentes");
+            }
+            
+            
+
+            Nave Nave1 = navesDisponibles.get(index1);
+            Nave Nave2 = navesDisponibles.get(index1);
+
+            String nombre1 = Nave1.getNombre();
+            int vida1 = Nave1.getVida();
+            int escudo1 = Nave1.getEscudo();
+            int ataque1 = Nave1.getPoderAtaque();
+
+            String nombre2 = Nave2.getNombre();
+            int vida2 = Nave2.getVida();
+            int escudo2 = Nave2.getEscudo();
+            int ataque2 = Nave2.getPoderAtaque();
+            
+            
+            System.out.println(nombre1 + nombre2);
+
+        }
+        
+        
+    }
+    public static void Historial(){
+        
     }
 }
