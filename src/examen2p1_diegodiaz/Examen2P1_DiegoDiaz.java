@@ -63,6 +63,7 @@ public class Examen2P1_DiegoDiaz {
     // creo un metodo auxiliar  para que si el usuario ingresa un dato afuera del rango por ejemplo vida ingresa 900 vuelva a preguntar 
 
     public static void crearNave() {
+        
         Scanner leer = new Scanner(System.in);
         System.out.println("Ha elegido la opcion de crear una nave porfavor aporte la informacion solicitada. ");
         System.out.println("Ingrese el nombre de la nave: ");
@@ -80,35 +81,39 @@ public class Examen2P1_DiegoDiaz {
 
         int vida = 0;
         while (vida < 1000 || vida > 2000) {
-            System.out.println("Ingrese vida (1000/ 2000)");
+            System.out.println("Ingrese vida (1000 - 2000)");
             vida = leer.nextInt();
+            leer.nextLine();
             if (vida < 1000 || vida > 2000) {
-                System.out.println("Ingrese una vida valida, entre 1000 y 2000");
+                System.out.println("Ingrese una vida valida, entre 1000 - 2000");
             }
+        }
             int escudo = 0;
             while (escudo < 100 || escudo > 500) {
                 System.out.println("Ingrese el Escudo (100 - 500): ");
                 escudo = leer.nextInt();
                 leer.nextLine();
                 if (escudo < 100 || escudo > 500) {
-                    System.out.println("Ingrese un escudo valido entre 100 y 500");
+                    System.out.println("Ingrese un escudo valido entre 100 - 500");
                 }
+            }
                 int ataque = 0;
         while (ataque < 4 || ataque > 10) {
-            System.out.println("Ingrese el Poder de Ataque (4 - 10): ");
+            System.out.println("Ingrese el Poder de Ataque 4 - 10: ");
             ataque = leer.nextInt();
             leer.nextLine();
             if (ataque < 4 || ataque > 10) {
-                System.out.println("Ingrese poder valido entre 4 y 10");
+                System.out.println("Ingrese poder valido entre 4 - 10");
             }
+        }
 
                 int velocidad = 0;
                 while (velocidad < 100 || velocidad > 1000) {
-                    System.out.println("Ingrese velocidad");
+                    System.out.println("Ingrese velocidad (100 - 1000)");
                     velocidad = leer.nextInt();
                     leer.nextLine();
                     if (velocidad < 100 || velocidad > 1000 ) {
-                        System.out.println("Ingrese velocidad entre (100 a 1000)");
+                        System.out.println("Ingrese velocidad entre (100 - 1000)");
                     }
                 }
                 Nave nuevaNave = new Nave(nombre, tipoNave, vida, escudo, ataque, velocidad);
@@ -119,29 +124,6 @@ public class Examen2P1_DiegoDiaz {
 
         }
 
-    }
-    }
+    
+    
 
-    public static void modificarNave() {
-        
-        
-
-    }
-
-    public static void listarNaves() {
-
-    }
-
-    public static void eliminarNave() {
-
-    }
-
-    public static void histotial() {
-
-    }
-
-    public static void Simulacion() {
-
-    }
-
-}
