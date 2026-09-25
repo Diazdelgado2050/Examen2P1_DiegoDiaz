@@ -41,6 +41,7 @@ public class Examen2P1_DiegoDiaz {
                     crearNave();
                     break;
                 case 2:
+                    modificarNave();
                     break;
                 case 3:
                     listarNaves();
@@ -65,21 +66,19 @@ public class Examen2P1_DiegoDiaz {
     // creo un metodo auxiliar  para que si el usuario ingresa un dato afuera del rango por ejemplo vida ingresa 900 vuelva a preguntar 
 
     public static void crearNave() {
-        
+
         Scanner leer = new Scanner(System.in);
         System.out.println("Ha elegido la opcion de crear una nave porfavor aporte la informacion solicitada. ");
         System.out.println("Ingrese el nombre de la nave: ");
         String nombre = leer.nextLine();
 
         String tipoNave = "";
-        
-            System.out.println("Ingrese el tipo de ataque (Ataque/Defensa)");
-            tipoNave = leer.nextLine();
-            if (!tipoNave.equalsIgnoreCase("Ataque") && !tipoNave.equalsIgnoreCase("Defensiva")) {
-                System.out.println("Ingrese tipo valido Ataque o defensa)");
-            }
-        
-        
+
+        System.out.println("Ingrese el tipo de ataque (Ataque/Defensa)");
+        tipoNave = leer.nextLine();
+        if (!tipoNave.equalsIgnoreCase("Ataque") && !tipoNave.equalsIgnoreCase("Defensiva")) {
+            System.out.println("Ingrese tipo valido Ataque o defensa)");
+        }
 
         int vida = 0;
         while (vida < 1000 || vida > 2000) {
@@ -90,16 +89,16 @@ public class Examen2P1_DiegoDiaz {
                 System.out.println("Ingrese una vida valida, entre (1000 - 2000) ");
             }
         }
-            int escudo = 0;
-            while (escudo < 100 || escudo > 500) {
-                System.out.println("Ingrese el Escudo (100 - 500): ");
-                escudo = leer.nextInt();
-                leer.nextLine();
-                if (escudo < 100 || escudo > 500) {
-                    System.out.println("Ingrese un escudo valido entre (100 - 500) ");
-                }
+        int escudo = 0;
+        while (escudo < 100 || escudo > 500) {
+            System.out.println("Ingrese el Escudo (100 - 500): ");
+            escudo = leer.nextInt();
+            leer.nextLine();
+            if (escudo < 100 || escudo > 500) {
+                System.out.println("Ingrese un escudo valido entre (100 - 500) ");
             }
-                int ataque = 0;
+        }
+        int ataque = 0;
         while (ataque < 4 || ataque > 10) {
             System.out.println("Ingrese el Poder de Ataque (4 - 10) : ");
             ataque = leer.nextInt();
@@ -109,29 +108,64 @@ public class Examen2P1_DiegoDiaz {
             }
         }
 
-                int velocidad = 0;
-                while (velocidad < 100 || velocidad > 1000) {
-                    System.out.println("Ingrese velocidad (100 - 1000)");
-                    velocidad = leer.nextInt();
-                    leer.nextLine();
-                    if (velocidad < 100 || velocidad > 1000 ) {
-                        System.out.println("Ingrese velocidad entre (100 - 1000)");
-                    }
-                }
-                Nave nuevaNave = new Nave(nombre, tipoNave, vida, escudo, ataque, velocidad);
-                navesDisponibles.add(nuevaNave);
-                System.out.println("Nave creada existosamente !");
-
+        int velocidad = 0;
+        while (velocidad < 100 || velocidad > 1000) {
+            System.out.println("Ingrese velocidad (100 - 1000)");
+            velocidad = leer.nextInt();
+            leer.nextLine();
+            if (velocidad < 100 || velocidad > 1000) {
+                System.out.println("Ingrese velocidad entre (100 - 1000)");
             }
-    public static void modificarNave(){
-        System.out.println("Ha ingresado la opcion de modificar naves. Elija la nave que modificara ingresando el numero de su nave");
-        
-        
-        
-        
+        }
+        Nave nuevaNave = new Nave(nombre, tipoNave, vida, escudo, ataque, velocidad);
+        navesDisponibles.add(nuevaNave);
+        System.out.println("Nave creada existosamente !");
+
     }
-    
-    public static void listarNaves(){
+
+    public static void modificarNave() {
+
+        Scanner leer = new Scanner(System.in);
+        System.out.println("Ha ingresado la opcion de modificar naves. Elija la nave que modificara ingresando el numero de su nave");
+        listarNaves();
+        int index = -1;
+        while (index < 0 || index >= navesDisponibles.size()) {
+            System.out.print("Nave :  ");
+            index = leer.nextInt();
+            leer.nextLine();
+
+        }
+
+        Nave nave = navesDisponibles.get(index);
+
+        System.out.print("Ingrese el nuevo nombre: ");
+        String nuevoNombre = leer.nextLine();
+
+        String nuevoTipo = "";
+
+        System.out.print("Ingrese el nuevo tipo (Ataque/Defensiva): ");
+        nuevoTipo = leer.nextLine();
+        if (!nuevoTipo.equalsIgnoreCase("Ataque") && !nuevoTipo.equalsIgnoreCase("Defensiva")) {
+            System.out.println("Solo puede seleccionar ataque o defensa");
+
+        }
+        int nuevoEscudo = 0;
+        while (nuevoEscudo < 100 || nuevoEscudo > 500) {
+            System.out.print("Ingrese el nuevo Escudo (100 - 500): ");
+            nuevoEscudo = leer.nextInt();
+            leer.nextLine();
+            if (nuevoEscudo < 100 || nuevoEscudo > 500) {
+                System.out.println("Ingrese un escudo valido entre (100 - 500 )");
+            }
+        }
+        nave.setNombre(nuevoNombre);
+        nave.setTipo(nuevoTipo);
+        nave.setEscudo(nuevoEscudo);
+
+        System.out.println("Nave modificada correctamente !! ");
+    }
+
+    public static void listarNaves() {
         System.out.println("Naves disponibles: \n\n");
         System.out.println("Naves disponibles: ");
         if (navesDisponibles.isEmpty()) {
@@ -142,9 +176,10 @@ public class Examen2P1_DiegoDiaz {
         for (int i = 0; i < navesDisponibles.size(); i++) {
             System.out.println("[" + i + "] " + navesDisponibles.get(i).toString());
         }
-       
+
     }
-    public static void eliminarNave(){
+
+    public static void eliminarNave() {
         Scanner leer = new Scanner(System.in);
         System.out.println("Ha ingresado la opcion eliminar . Elija la nave que eliminara ingresando su numero de nave");
         if (navesDisponibles.isEmpty()) {
@@ -154,7 +189,7 @@ public class Examen2P1_DiegoDiaz {
 
         listarNaves();
         int naves = -1;
-        while (naves  < 0 || naves >= navesDisponibles.size()) {
+        while (naves < 0 || naves >= navesDisponibles.size()) {
             System.out.print("Nave: \t ");
             naves = leer.nextInt();
             leer.nextLine();
@@ -163,11 +198,4 @@ public class Examen2P1_DiegoDiaz {
         Nave eliminada = navesDisponibles.remove(naves);
         System.out.println("La nave a sido eliminada con exito");
     }
-    }
-    
-
-        
-
-    
-    
-
+}
