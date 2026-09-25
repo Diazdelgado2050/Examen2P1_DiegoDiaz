@@ -46,6 +46,7 @@ public class Examen2P1_DiegoDiaz {
                     listarNaves();
                     break;
                 case 4:
+                    eliminarNave();
                     break;
                 case 5:
                     break;
@@ -124,11 +125,13 @@ public class Examen2P1_DiegoDiaz {
             }
     public static void modificarNave(){
         
+        
+        
     }
     
     public static void listarNaves(){
         System.out.println("Naves disponibles: \n\n");
-        System.out.println("\n--- NAVES DISPONIBLES ---");
+        System.out.println("Naves disponibles: ");
         if (navesDisponibles.isEmpty()) {
             System.out.println("No hay naves en el sistema.");
             return;
@@ -137,8 +140,29 @@ public class Examen2P1_DiegoDiaz {
         for (int i = 0; i < navesDisponibles.size(); i++) {
             System.out.println("[" + i + "] " + navesDisponibles.get(i).toString());
         }
+       
+    }
+    public static void eliminarNave(){
+        Scanner leer = new Scanner(System.in);
+        System.out.println("Ha ingresado la opcion eliminar . Elija la nave que eliminara ingresando su numero de nave");
+        if (navesDisponibles.isEmpty()) {
+            System.out.println("No hay naves para eliminar.");
+            return;
+        }
+
+        listarNaves();
+        int naves = -1;
+        while (naves  < 0 || naves >= navesDisponibles.size()) {
+            System.out.print("Nave: \t ");
+            naves = leer.nextInt();
+            leer.nextLine();
+        }
+
+        Nave eliminada = navesDisponibles.remove(naves);
+        System.out.println("La nave a sido eliminada con exito");
     }
     }
+    
 
         
 
