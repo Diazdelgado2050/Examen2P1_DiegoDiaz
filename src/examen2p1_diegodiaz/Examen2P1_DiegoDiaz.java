@@ -12,12 +12,9 @@ import java.util.Scanner;
  * @author diego
  */
 public class Examen2P1_DiegoDiaz {
-    
+
     //uso metodos estaticos para poder llamarlos donde sea 
-     
-     static ArrayList <Nave> navesDisponibles = new ArrayList<>();
-     
-    
+    static ArrayList<Nave> navesDisponibles = new ArrayList<>();
 
     /**
      * @param args the command line arguments
@@ -38,10 +35,8 @@ public class Examen2P1_DiegoDiaz {
             System.out.println("7. Salir");
             System.out.print("Ingrese una opcion: ");
             opc = leer.nextInt();
-            
-            
-            
-            switch(opc){
+
+            switch (opc) {
                 case 1:
                     crearNave();
                     break;
@@ -60,64 +55,93 @@ public class Examen2P1_DiegoDiaz {
                     break;
                 default:
                     break;
-              
+
             }
-            
-            
+
         } while (opc != 7);
     }
     // creo un metodo auxiliar  para que si el usuario ingresa un dato afuera del rango por ejemplo vida ingresa 900 vuelva a preguntar 
-     
-    public static void crearNave(){
+
+    public static void crearNave() {
         Scanner leer = new Scanner(System.in);
         System.out.println("Ha elegido la opcion de crear una nave porfavor aporte la informacion solicitada. ");
         System.out.println("Ingrese el nombre de la nave: ");
         String nombre = leer.nextLine();
-        
+
         String tipoNave = "";
-        while (!tipoNave.equalsIgnoreCase("Ataque") && tipoNave.equalsIgnoreCase("Defensa") ) {
+        while (!tipoNave.equalsIgnoreCase("Ataque") && tipoNave.equalsIgnoreCase("Defensa")) {
             System.out.println("Ingrese el tipo de ataque (Ataque/Defensa)");
             tipoNave = leer.nextLine();
-            
             if (!tipoNave.equalsIgnoreCase("Ataque") && !tipoNave.equalsIgnoreCase("Defensiva")) {
-                System.out.println("Error: El tipo solo puede ser 'Ataque' o 'Defensiva'.");
+                System.out.println("Ingrese tipo valido Ataque o defensa)");
             }
         }
-            tipoNave = tipoNave.substring(0, 1).toUpperCase() + tipoNave.substring(1).toLowerCase();
-            
-            int vida = 0;
-            while (vida < 1000 || vida > 2000) {
-                System.out.println("Ingrese vida (1000/ 2000)");
-                vida = leer.nextInt();
-                if (vida < 1000 || vida > 2000) {
-                    System.out.println("Ingrese una vida valida, entre 1000 y 2000");
-                    
+        
+
+        int vida = 0;
+        while (vida < 1000 || vida > 2000) {
+            System.out.println("Ingrese vida (1000/ 2000)");
+            vida = leer.nextInt();
+            if (vida < 1000 || vida > 2000) {
+                System.out.println("Ingrese una vida valida, entre 1000 y 2000");
+            }
+            int escudo = 0;
+            while (escudo < 100 || escudo > 500) {
+                System.out.println("Ingrese el Escudo (100 - 500): ");
+                escudo = leer.nextInt();
+                leer.nextLine();
+                if (escudo < 100 || escudo > 500) {
+                    System.out.println("Ingrese un escudo valido entre 100 y 500");
                 }
+                int ataque = 0;
+        while (ataque < 4 || ataque > 10) {
+            System.out.println("Ingrese el Poder de Ataque (4 - 10): ");
+            ataque = leer.nextInt();
+            leer.nextLine();
+            if (ataque < 4 || ataque > 10) {
+                System.out.println("Ingrese poder valido entre 4 y 10");
+            }
+
+                int velocidad = 0;
+                while (velocidad < 100 || velocidad > 1000) {
+                    System.out.println("Ingrese velocidad");
+                    velocidad = leer.nextInt();
+                    leer.nextLine();
+                    if (velocidad < 100 || velocidad > 1000 ) {
+                        System.out.println("Ingrese velocidad entre (100 a 1000)");
+                    }
+                }
+                Nave nuevaNave = new Nave(nombre, tipoNave, vida, escudo, ataque, velocidad);
+                navesDisponibles.add(nuevaNave);
+                System.out.println("Nave creada existosamente !");
+
+            }
+
         }
-            
 
-        
-        
-        
     }
-    public static void modificarNave(){
-        
     }
-    public static void listarNaves(){
+
+    public static void modificarNave() {
         
-    }
-    public static void eliminarNave(){
         
+
     }
-    public static void histotial(){
-        
+
+    public static void listarNaves() {
+
     }
-    public static void Simulacion(){
-        
+
+    public static void eliminarNave() {
+
     }
-    
+
+    public static void histotial() {
+
+    }
+
+    public static void Simulacion() {
+
+    }
+
 }
-    
-
-    
-
