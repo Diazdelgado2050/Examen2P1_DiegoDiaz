@@ -5,6 +5,7 @@
 package examen2p1_diegodiaz;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -64,7 +65,7 @@ public class Examen2P1_DiegoDiaz {
 
         } while (opc != 7);
     }
-    // creo un metodo auxiliar  para que si el usuario ingresa un dato afuera del rango por ejemplo vida ingresa 900 vuelva a preguntar 
+    
 
     public static void crearNave() {
 
@@ -203,6 +204,7 @@ public class Examen2P1_DiegoDiaz {
     public static void simulacionCombate() {
 
         Scanner leer = new Scanner(System.in);
+        Random rnd = new Random();
         System.out.println("Ha ingresado la opcion de simulacion de combate. Elija la primera nave ingresando el numero de nave");
 
         listarNaves();
@@ -220,17 +222,15 @@ public class Examen2P1_DiegoDiaz {
             System.out.print("Seleccione la segunda nave: ");
             index2 = leer.nextInt();
             leer.nextLine();
-            
-            if (index1 < 0  || index2 >= navesDisponibles.size()) {
+
+            if (index1 < 0 || index2 >= navesDisponibles.size()) {
                 System.out.println("Ingrese valor valido");
-            }else if (index2 == index1){
+            } else if (index2 == index1) {
                 System.out.println("Tienen que ser diferentes");
             }
-            
-            
 
             Nave Nave1 = navesDisponibles.get(index1);
-            Nave Nave2 = navesDisponibles.get(index1);
+            Nave Nave2 = navesDisponibles.get(index2);
 
             String nombre1 = Nave1.getNombre();
             int vida1 = Nave1.getVida();
@@ -241,15 +241,31 @@ public class Examen2P1_DiegoDiaz {
             int vida2 = Nave2.getVida();
             int escudo2 = Nave2.getEscudo();
             int ataque2 = Nave2.getPoderAtaque();
-            
-            
-            System.out.println(nombre1 + nombre2);
 
+            System.out.println("Comienza el combate entre" + nombre1 + nombre2 + "\n");
+
+            int ronda = 1;
+            String ganadora = "";
+
+            while (vida1 > 0 && vida2 > 0) {
+                System.out.println("\n--- Ronda " + ronda + " ---");
+                System.out.println(nombre1 + " --> Vida: " + vida1 + " | Escudo: " + escudo1);
+                System.out.println(nombre2 + " --> Vida: " + vida2 + " | Escudo: " + escudo2);
+
+                int boost1 = rnd.nextInt(5) + 1;
+                int daño1 = ataque1 * boost1;
+
+                System.out.println(nombre1 + " ataca a " + nombre2);
+                if (boost1 >= 4) {
+                    System.out.println("Golpe Critico! ");
+                }
+                System.out.println(nombre1 + " inflige " + daño1 + " de daño ");
+                break;
+
+            }
         }
-        
-        
     }
-    public static void Historial(){
-        
+    public static void historial(){
+        System.out.println(": V , : 3");
     }
 }
