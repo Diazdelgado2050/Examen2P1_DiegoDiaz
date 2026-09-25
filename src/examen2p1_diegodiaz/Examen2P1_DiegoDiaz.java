@@ -72,13 +72,13 @@ public class Examen2P1_DiegoDiaz {
         String nombre = leer.nextLine();
 
         String tipoNave = "";
-        while (!tipoNave.equalsIgnoreCase("Ataque") && tipoNave.equalsIgnoreCase("Defensa")) {
+        
             System.out.println("Ingrese el tipo de ataque (Ataque/Defensa)");
             tipoNave = leer.nextLine();
             if (!tipoNave.equalsIgnoreCase("Ataque") && !tipoNave.equalsIgnoreCase("Defensiva")) {
                 System.out.println("Ingrese tipo valido Ataque o defensa)");
             }
-        }
+        
         
 
         int vida = 0;
@@ -124,6 +124,8 @@ public class Examen2P1_DiegoDiaz {
 
             }
     public static void modificarNave(){
+        System.out.println("Ha ingresado la opcion de modificar naves. Elija la nave que modificara ingresando el numero de su nave");
+        
         
         
         
